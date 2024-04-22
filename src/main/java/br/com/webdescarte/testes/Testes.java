@@ -26,13 +26,13 @@ public class Testes {
 //		//ficticios para cadastrar. Esta técnica é chamada de dados
 //		//mockados
 //		Usuario us = new Usuario();
-//		us.setNomeusuario("valeria");
-//		us.setSenhausuario("123");
-//		us.setEmailusuario("valeria@terra.com.br");
-//		us.setTelefoneusuario("11-2232-5855");
-//		us.setNomecompletousuario("Valéria Gomes");
-//		us.setCpfusuario("6568659895");
-//		us.setCnpjusuario("847237737/50555");
+//		us.setNomeusuario("Camila");
+//		us.setSenhausuario("12345");
+//		us.setEmailusuario("camilinhaa@hotmail.com.br");
+//		us.setTelefoneusuario("11-7655-5855");
+//		us.setNomecompletousuario("Camila Jasmin");
+//		us.setCpfusuario("5554334567");
+//		us.setCnpjusuario("564555555/50555");
 //		
 //		//instância da classe  DAOUsuario
 //		DAOusuario daous = new DAOusuario();
@@ -41,11 +41,17 @@ public class Testes {
 //}
 	@Test
 	public void testListar() {
-		DAOusuario daous = new DAOusuario();
-		List<Usuario> resultado=new ArrayList<Usuario>();
-		assertEquals(resultado, daous.listar());		
-	}
-}
+	    // Preparar os dados esperados
+	    List<Usuario> resultadoEsperado = new ArrayList<Usuario>();
+	    // Adicionar alguns usuários à lista resultadoEsperado
+
+	    // Chamar o método listar()
+	    DAOusuario daous = new DAOusuario();
+	    List<Usuario> resultadoReal = daous.listar();
+
+	    // Comparar as listas
+	    assertEquals(resultadoEsperado, resultadoReal);
+	}}
 //	@Test
 //public void testPesquisar() {
 //	DAOUsuario daous = new DAOUsuario();
