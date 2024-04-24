@@ -59,14 +59,14 @@ public class DAOusuario extends Conexao implements CRUDusuario<Usuario>{
 				rs = pst.executeQuery();
 				while(rs.next()) {
 					Usuario us = new Usuario();
-					us.setIdusuario(rs.getInt(1));
-					us.setNomeusuario(rs.getString(2));
-					us.setSenhausuario(rs.getString(3));
-					us.setEmailusuario(rs.getString(4));
-					us.setTelefoneusuario(rs.getString(5));
-					us.setNomecompletousuario(rs.getString(6));
-					us.setCpfusuario(rs.getString(7));
-					us.setCnpjusuario(rs.getString(8));
+					us.setIdusuario(rs.getInt(0));
+					us.setNomeusuario(rs.getString(1));
+					us.setSenhausuario(rs.getString(2));
+					us.setEmailusuario(rs.getString(3));
+					us.setTelefoneusuario(rs.getString(4));
+					us.setNomecompletousuario(rs.getString(5));
+					us.setCpfusuario(rs.getString(6));
+					us.setCnpjusuario(rs.getString(7));
 					
 					lista.add(us);
 				}
@@ -135,7 +135,7 @@ public class DAOusuario extends Conexao implements CRUDusuario<Usuario>{
 		boolean auth = true;
 		try {
 			if (abrirConexao()) {
-				String SQL = "select nomeusuario, emailusuario, cpfusuario, cnpjusuario from usuario where idusuario=?, senhausuario=?, emailusuario=?, cpfusuario=?, cnpjusuario=?";
+				String SQL = "select nomeusuario, senhausuario, emailusuario, cpfusuario, cnpjusuario from Usuario where nomeusuario=? or emailusuario=? or cpfusuario=? or cnpjusuario=? and senhausuario=?";
 				pst = con.prepareStatement(SQL);
 				
 				pst.setString(1, dados.getNomeusuario());
@@ -175,7 +175,7 @@ public class DAOusuario extends Conexao implements CRUDusuario<Usuario>{
 		String msg = "";
 		try {
 			if(abrirConexao()) {
-				String sql = "update Usuario set senha=? where idusuario=?";
+				String sql = "update Usuario set senhausuario=? where idusuario=?";
 				
 				pst = con.prepareStatement(sql);
 	
